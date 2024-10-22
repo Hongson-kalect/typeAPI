@@ -6,22 +6,32 @@ export type UserDocument = User & Document;
 @Schema()
 export class User {
   @Prop()
-  username: string;
+  user: number;
 
   @Prop()
-  password: string;
+  type: string; // game hay bài gõ
 
   @Prop()
-  crossPlatform: string;
+  wps: string;
 
   @Prop()
-  platformID: string;
+  cps: string;
 
   @Prop()
-  recoverEmail: string;
+  score: string;
 
   @Prop()
-  ban: string;
+  wa: string;
+
+  @Prop()
+  ca: string;
+
+  // @Prop()
+  // user: string;
+  // @Prop()
+  // para: string;
+
+  //score cho game hay cho bài gõ hay cho bài viết. Để chung hay ko?
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

@@ -9,19 +9,10 @@ export class User {
   username: string;
 
   @Prop()
-  password: string;
+  type: string; //paras, theme, author
 
   @Prop()
-  crossPlatform: string;
-
-  @Prop()
-  platformID: string;
-
-  @Prop()
-  recoverEmail: string;
-
-  @Prop()
-  ban: string;
+  id: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

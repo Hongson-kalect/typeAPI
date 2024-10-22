@@ -8,8 +8,10 @@ export class User {
   @Prop()
   username: string;
 
+  type: string; //bản dịch hoặc bản gốc, theme hay sound hay ....
+
   @Prop()
-  password: string;
+  rate: string;
 
   @Prop()
   crossPlatform: string;

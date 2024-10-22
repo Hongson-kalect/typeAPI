@@ -9,13 +9,13 @@ export class User {
   username: string;
 
   @Prop()
-  password: string;
+  type: string; //report cho cái gì
 
   @Prop()
-  crossPlatform: string;
+  reportType: string; // loại report
 
   @Prop()
-  platformID: string;
+  desc: string;
 
   @Prop()
   recoverEmail: string;

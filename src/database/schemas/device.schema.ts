@@ -9,19 +9,13 @@ export class User {
   username: string;
 
   @Prop()
-  password: string;
+  ip: string;
 
   @Prop()
-  crossPlatform: string;
+  time: string;
 
   @Prop()
-  platformID: string;
-
-  @Prop()
-  recoverEmail: string;
-
-  @Prop()
-  ban: string;
+  location: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

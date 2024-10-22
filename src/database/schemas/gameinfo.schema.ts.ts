@@ -6,16 +6,16 @@ export type UserDocument = User & Document;
 @Schema()
 export class User {
   @Prop()
-  username: string;
+  game: string;
 
   @Prop()
-  password: string;
+  played: string;
 
   @Prop()
-  crossPlatform: string;
+  isNew: string;
 
   @Prop()
-  platformID: string;
+  dohot: string; //độ sôi nổi của game
 
   @Prop()
   recoverEmail: string;

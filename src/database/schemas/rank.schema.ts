@@ -5,17 +5,22 @@ export type UserDocument = User & Document;
 
 @Schema()
 export class User {
-  @Prop()
-  username: string;
+  user: string;
+
+  //đăng nhập
 
   @Prop()
-  password: string;
+  game: string;
 
   @Prop()
-  crossPlatform: string;
+  rank: number;
 
   @Prop()
-  platformID: string;
+  score: string;
+
+  @Prop()
+  time: string;
+  //thời gian hoàn thành ải or game chứ ko phải time tạo
 
   @Prop()
   recoverEmail: string;
