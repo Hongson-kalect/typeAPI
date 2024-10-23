@@ -1,7 +1,9 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import * as mongoose from 'mongoose';
+import { Theme } from './theme.schema';
+import { User } from './user.schema';
 
-export type AssetDocument = Asset & Document;
+export type AssetDocument = Asset & mongoose.Document;
 
 @Schema()
 export class Asset {
@@ -11,12 +13,11 @@ export class Asset {
   @Prop()
   crystal: string;
 
-  /////
-  @Prop()
-  theme: string;
+  @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Post' }] })
+  themes: Theme[];
 
-  @Prop()
-  username: string;
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
+  user: User;
 }
 
 export const AssetSchema = SchemaFactory.createForClass(Asset);

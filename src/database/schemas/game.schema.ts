@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import mongoose, { Document } from 'mongoose';
 
 export type GameDocument = Game & Document;
 
@@ -14,8 +14,11 @@ export class Game {
   @Prop()
   genre: string;
 
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'GameInfo' })
+  gameInfo: string;
+
   @Prop()
-  language: string;
+  defaultLanguage: string;
 }
 
 export const GameSchema = SchemaFactory.createForClass(Game);
