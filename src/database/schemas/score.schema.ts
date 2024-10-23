@@ -1,10 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
-export type UserDocument = User & Document;
+export type ScoreDocument = Score & Document;
 
 @Schema()
-export class User {
+export class Score {
   @Prop()
   user: number;
 
@@ -34,4 +34,4 @@ export class User {
   //score cho game hay cho bài gõ hay cho bài viết. Để chung hay ko?
 }
 
-export const UserSchema = SchemaFactory.createForClass(User);
+export const ScoreSchema = SchemaFactory.createForClass(Score);

@@ -1,27 +1,21 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
-export type UserDocument = User & Document;
+export type WordRateDocument = WordRate & Document;
 
 @Schema()
-export class User {
+export class WordRate {
   @Prop()
-  username: string;
+  language: string;
 
   @Prop()
-  password: string;
+  rate: string; //json
 
   @Prop()
-  crossPlatform: string;
+  level: string;
 
   @Prop()
-  platformID: string;
-
-  @Prop()
-  recoverEmail: string;
-
-  @Prop()
-  ban: string;
+  desc: string;
 }
 
-export const UserSchema = SchemaFactory.createForClass(User);
+export const WordRateSchema = SchemaFactory.createForClass(WordRate);

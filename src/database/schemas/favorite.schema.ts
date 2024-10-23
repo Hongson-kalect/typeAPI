@@ -1,10 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
-export type UserDocument = User & Document;
+export type FavoriteDocument = Favorite & Document;
 
 @Schema()
-export class User {
+export class Favorite {
   @Prop()
   username: string;
 
@@ -15,4 +15,4 @@ export class User {
   id: string;
 }
 
-export const UserSchema = SchemaFactory.createForClass(User);
+export const FavoriteSchema = SchemaFactory.createForClass(Favorite);

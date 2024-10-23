@@ -1,10 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
-export type UserDocument = User & Document;
+export type ParagraphDocument = Paragraph & Document;
 
 @Schema()
-export class User {
+export class Paragraph {
   @Prop()
   novel: string;
 
@@ -30,4 +30,4 @@ export class User {
   rateTime: string;
 }
 
-export const UserSchema = SchemaFactory.createForClass(User);
+export const ParagraphSchema = SchemaFactory.createForClass(Paragraph);

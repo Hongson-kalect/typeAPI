@@ -1,27 +1,27 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
-export type UserDocument = User & Document;
+export type StoreDocument = Store & Document;
 
 @Schema()
-export class User {
+export class Store {
   @Prop()
-  username: string;
+  theme: string;
 
   @Prop()
-  password: string;
+  price: string;
 
   @Prop()
-  crossPlatform: string;
+  unit: string;
 
   @Prop()
-  platformID: string;
+  desc: string;
 
   @Prop()
-  recoverEmail: string;
+  rate: string;
 
-  @Prop()
-  ban: string;
+  // @Prop()
+  // ban: string;
 }
 
-export const UserSchema = SchemaFactory.createForClass(User);
+export const StoreSchema = SchemaFactory.createForClass(Store);

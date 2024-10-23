@@ -1,10 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
-export type UserDocument = User & Document;
+export type RankDocument = Rank & Document;
 
 @Schema()
-export class User {
+export class Rank {
   user: string;
 
   //đăng nhập
@@ -29,4 +29,4 @@ export class User {
   ban: string;
 }
 
-export const UserSchema = SchemaFactory.createForClass(User);
+export const RankSchema = SchemaFactory.createForClass(Rank);

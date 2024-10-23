@@ -18,6 +18,9 @@ export class Profile {
   lastName: string;
 
   @Prop()
+  displayName: string;
+
+  @Prop()
   nation: string;
 
   @Prop()
@@ -25,6 +28,10 @@ export class Profile {
 
   @Prop()
   role: string;
+
+  // assoication
+  @Prop()
+  user: UserDocument;
 }
 
 export const UserSchema = SchemaFactory.createForClass(Profile);
