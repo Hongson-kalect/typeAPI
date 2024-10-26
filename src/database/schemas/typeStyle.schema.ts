@@ -1,12 +1,13 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import mongoose, { Document } from 'mongoose';
+import { Language, LanguageDocument } from './language.schema';
 
 export type TypeStyleDocument = TypeStyle & Document;
 
 @Schema()
 export class TypeStyle {
-  @Prop()
-  language: string;
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Language' })
+  language: LanguageDocument;
 
   @Prop()
   code: string;

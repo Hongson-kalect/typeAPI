@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body } from '@nestjs/common';
 import { AssetService } from './asset.service';
 import { CreateAssetDto } from './dto/create-user.dto';
 
-@Controller('users')
+@Controller('assets')
 export class AssetController {
   constructor(private readonly userService: AssetService) {}
 

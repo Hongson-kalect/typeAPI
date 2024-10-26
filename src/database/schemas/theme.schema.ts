@@ -17,8 +17,8 @@ export class Theme {
   @Prop()
   desc: string;
 
-  @Prop()
-  rate: string;
+  // @Prop()
+  // rate: string;
 }
 
 export const ThemeSchema = SchemaFactory.createForClass(Theme);

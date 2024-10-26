@@ -1,15 +1,19 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import mongoose, { Document } from 'mongoose';
+import { UserDocument } from './user.schema';
 
 export type ScoreDocument = Score & Document;
 
 @Schema()
 export class Score {
-  @Prop()
-  user: number;
+  @Prop({ type: { type: mongoose.Schema.Types.ObjectId, ref: 'User' } })
+  user: UserDocument;
 
   @Prop()
   type: string; // game hay bài gõ
+
+  @Prop()
+  itemId: string;
 
   @Prop()
   wps: string;
@@ -22,6 +26,9 @@ export class Score {
 
   @Prop()
   wa: string;
+
+  @Prop()
+  time: number; //milisecond
 
   @Prop()
   ca: string;

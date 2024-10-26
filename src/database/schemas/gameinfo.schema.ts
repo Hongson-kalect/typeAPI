@@ -1,18 +1,26 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import mongoose, { Document } from 'mongoose';
+import { Game, GameDocument } from './game.schema';
+import { Language } from './language.schema';
 
 export type GameInfoDocument = GameInfo & Document;
 
 @Schema()
 export class GameInfo {
-  @Prop()
-  game: string;
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Language' })
+  defaultLanguage: Language;
 
   @Prop()
-  played: string;
+  played: number;
 
   @Prop()
-  isNew: string;
+  stage: string;
+
+  @Prop()
+  complteled: number;
+
+  @Prop()
+  isNew: boolean;
 
   @Prop()
   dohot: string; //độ sôi nổi của game
@@ -22,6 +30,9 @@ export class GameInfo {
 
   @Prop()
   ban: string;
+
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Game' })
+  game: GameDocument;
 }
 
 export const GameInfoSchema = SchemaFactory.createForClass(GameInfo);

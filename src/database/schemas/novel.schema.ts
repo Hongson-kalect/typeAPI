@@ -1,15 +1,18 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import mongoose, { Document } from 'mongoose';
+import { Language } from './language.schema';
+import { User } from './user.schema';
+import { Paragraph, ParagraphDocument } from './paragraphs.schema';
 
 export type NovelDocument = Novel & Document;
 
 @Schema()
 export class Novel {
-  @Prop()
-  defaultlanguage: string;
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Language' })
+  defaultlanguage: Language;
 
-  @Prop()
-  user: string;
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
+  user: User;
 
   @Prop()
   level: string;
@@ -19,6 +22,7 @@ export class Novel {
 
   @Prop()
   rateTime: string;
+
   @Prop()
   chapter: string;
 
@@ -36,6 +40,9 @@ export class Novel {
 
   @Prop()
   desc: string;
+
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Paragraph' })
+  paragraphs: ParagraphDocument[];
 }
 
 export const NovelSchema = SchemaFactory.createForClass(Novel);

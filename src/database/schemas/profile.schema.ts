@@ -1,7 +1,8 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import mongoose, { Document } from 'mongoose';
+import { User, UserDocument } from './user.schema';
 
-export type UserDocument = Profile & Document;
+export type ProfileDocument = Profile & Document;
 
 @Schema()
 export class Profile {
@@ -30,8 +31,8 @@ export class Profile {
   role: string;
 
   // assoication
-  @Prop()
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
   user: UserDocument;
 }
 
-export const UserSchema = SchemaFactory.createForClass(Profile);
+export const ProfileSchema = SchemaFactory.createForClass(Profile);

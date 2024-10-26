@@ -1,12 +1,13 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import mongoose, { Document } from 'mongoose';
+import { ThemeDocument } from './theme.schema';
 
 export type StoreDocument = Store & Document;
 
 @Schema()
 export class Store {
-  @Prop()
-  theme: string;
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Theme' })
+  theme: ThemeDocument;
 
   @Prop()
   price: string;

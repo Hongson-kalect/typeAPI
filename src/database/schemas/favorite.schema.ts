@@ -1,20 +1,20 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose, { Document } from 'mongoose';
-import { User } from './user.schema';
-import { Paragraph } from './paragraphs.schema';
+import { User, UserDocument } from './user.schema';
+import { Paragraph, ParagraphDocument } from './paragraphs.schema';
 
 export type FavoriteDocument = Favorite & Document;
 
 @Schema()
 export class Favorite {
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
-  user: User;
+  user: UserDocument;
 
   @Prop()
   type: string; //paras, theme, author
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
-  paragraph: Paragraph;
+  paragraph: ParagraphDocument;
 }
 
 export const FavoriteSchema = SchemaFactory.createForClass(Favorite);

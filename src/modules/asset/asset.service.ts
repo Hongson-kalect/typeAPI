@@ -7,15 +7,15 @@ import { CreateAssetDto } from './dto/create-user.dto';
 @Injectable()
 export class AssetService {
   constructor(
-    @InjectModel(Asset.name) private userModel: Model<AssetDocument>,
+    @InjectModel(Asset.name) private assetModel: Model<AssetDocument>,
   ) {}
 
   async createAsset({ age, name }: CreateAssetDto): Promise<Asset> {
-    const newAsset = new this.userModel({ name, age });
+    const newAsset = new this.assetModel({ name, age });
     return newAsset.save();
   }
 
   async findAll(): Promise<Asset[]> {
-    return this.userModel.find().exec();
+    return this.assetModel.find().exec();
   }
 }

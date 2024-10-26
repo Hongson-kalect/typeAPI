@@ -1,12 +1,13 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import mongoose, { Document } from 'mongoose';
+import { LanguageDocument } from './language.schema';
 
 export type WordRateDocument = WordRate & Document;
 
 @Schema()
 export class WordRate {
-  @Prop()
-  language: string;
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Language' })
+  language: LanguageDocument;
 
   @Prop()
   rate: string; //json

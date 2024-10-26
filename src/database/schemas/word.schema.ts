@@ -1,12 +1,16 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import mongoose, { Document } from 'mongoose';
+import { LanguageDocument } from './language.schema';
 
 export type WordDocument = Word & Document;
 
 @Schema()
 export class Word {
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Language' })
+  language: LanguageDocument;
+
   @Prop()
-  language: string;
+  level: string;
 
   @Prop()
   type: string;

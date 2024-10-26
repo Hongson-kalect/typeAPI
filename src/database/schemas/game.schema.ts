@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose, { Document } from 'mongoose';
+import { GameInfo, GameInfoDocument } from './gameinfo.schema';
 
 export type GameDocument = Game & Document;
 
@@ -15,7 +16,7 @@ export class Game {
   genre: string;
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'GameInfo' })
-  gameInfo: string;
+  gameInfo: GameInfoDocument;
 
   @Prop()
   defaultLanguage: string;

@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import * as mongoose from 'mongoose';
 import { Theme } from './theme.schema';
-import { User } from './user.schema';
+import { User, UserDocument } from './user.schema';
 
 export type AssetDocument = Asset & mongoose.Document;
 
@@ -17,7 +17,7 @@ export class Asset {
   themes: Theme[];
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
-  user: User;
+  user: UserDocument;
 }
 
 export const AssetSchema = SchemaFactory.createForClass(Asset);

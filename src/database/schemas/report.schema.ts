@@ -1,27 +1,25 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import mongoose, { Document } from 'mongoose';
+import { UserDocument } from './user.schema';
 
-export type RateDocument = Rate & Document;
+export type ReportDocument = Report & Document;
 
 @Schema()
-export class Rate {
-  @Prop()
-  username: string;
+export class Report {
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
+  user: UserDocument;
 
   @Prop()
   type: string; //report cho cái gì
+
+  @Prop()
+  itemId: string;
 
   @Prop()
   reportType: string; // loại report
 
   @Prop()
   desc: string;
-
-  @Prop()
-  recoverEmail: string;
-
-  @Prop()
-  ban: string;
 }
 
-export const RateSchema = SchemaFactory.createForClass(Rate);
+export const ReportSchema = SchemaFactory.createForClass(Report);
