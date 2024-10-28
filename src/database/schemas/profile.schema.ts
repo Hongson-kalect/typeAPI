@@ -32,7 +32,7 @@ export class Profile {
 
   // assoication
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
-  user: UserDocument;
+  user: mongoose.Schema.Types.ObjectId;
 }
 
 export const ProfileSchema = SchemaFactory.createForClass(Profile);

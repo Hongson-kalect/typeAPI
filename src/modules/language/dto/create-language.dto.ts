@@ -4,8 +4,12 @@ export class CreateLanguageDto {
   @IsString()
   name: string;
 
-  @IsInt()
-  @Min(0)
-  @Max(120)
-  age: number;
+  @IsString()
+  code: string;
+
+  @IsString()
+  flag: string;
+
+  @IsString()
+  desc: string;
 }

@@ -7,7 +7,7 @@ export type RankDocument = Rank & Document;
 @Schema()
 export class Rank {
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
-  user: UserDocument;
+  user: mongoose.Schema.Types.ObjectId;
 
   //đăng nhập
 

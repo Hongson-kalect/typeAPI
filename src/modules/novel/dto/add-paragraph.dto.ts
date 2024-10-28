@@ -1,6 +1,9 @@
-import { IsString, IsInt, Min, Max } from 'class-validator';
+import { IsString } from 'class-validator';
 
-export class CreateParagraphDto {
+export class AddParagraphDto {
+  @IsString()
+  id: string;
+
   @IsString()
   language: string;
 

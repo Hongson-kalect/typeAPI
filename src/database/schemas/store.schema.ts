@@ -7,7 +7,7 @@ export type StoreDocument = Store & Document;
 @Schema()
 export class Store {
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Theme' })
-  theme: ThemeDocument;
+  theme: mongoose.Schema.Types.ObjectId;
 
   @Prop()
   price: string;

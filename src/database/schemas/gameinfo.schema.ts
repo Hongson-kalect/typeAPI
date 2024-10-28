@@ -8,7 +8,7 @@ export type GameInfoDocument = GameInfo & Document;
 @Schema()
 export class GameInfo {
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Language' })
-  defaultLanguage: Language;
+  defaultLanguage: mongoose.Schema.Types.ObjectId;
 
   @Prop()
   played: number;
@@ -32,7 +32,7 @@ export class GameInfo {
   ban: string;
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Game' })
-  game: GameDocument;
+  game: mongoose.Schema.Types.ObjectId;
 }
 
 export const GameInfoSchema = SchemaFactory.createForClass(GameInfo);

@@ -15,5 +15,6 @@ import { ParagraphService } from './paragraph.service';
   ],
   controllers: [ParagraphController],
   providers: [ParagraphService],
+  exports: [ParagraphService],
 })
 export class ParagraphModule {}

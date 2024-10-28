@@ -7,7 +7,7 @@ export type ReportDocument = Report & Document;
 @Schema()
 export class Report {
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
-  user: UserDocument;
+  user: mongoose.Schema.Types.ObjectId;
 
   @Prop()
   type: string; //report cho cái gì

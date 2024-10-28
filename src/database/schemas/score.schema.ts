@@ -7,7 +7,7 @@ export type ScoreDocument = Score & Document;
 @Schema()
 export class Score {
   @Prop({ type: { type: mongoose.Schema.Types.ObjectId, ref: 'User' } })
-  user: UserDocument;
+  user: mongoose.Schema.Types.ObjectId;
 
   @Prop()
   type: string; // game hay bài gõ

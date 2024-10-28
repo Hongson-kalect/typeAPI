@@ -13,9 +13,9 @@ export class ParagraphService {
     @InjectModel(Paragraph.name) private userModel: Model<ParagraphDocument>,
   ) {}
 
-  async createParagraph({ age, name }: CreateParagraphDto): Promise<Paragraph> {
-    const newParagraph = new this.userModel({ name, age });
-    return newParagraph.save();
+  async createParagraph(props: CreateParagraphDto): Promise<Paragraph> {
+    const createdParagraph = new this.userModel(props);
+    return createdParagraph.save();
   }
 
   async findAll(): Promise<Paragraph[]> {

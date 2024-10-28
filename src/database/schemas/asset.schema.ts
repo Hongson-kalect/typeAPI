@@ -14,10 +14,10 @@ export class Asset {
   crystal: string;
 
   @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Post' }] })
-  themes: Theme[];
+  themes: mongoose.Schema.Types.ObjectId[];
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
-  user: UserDocument;
+  user: mongoose.Schema.Types.ObjectId;
 }
 
 export const AssetSchema = SchemaFactory.createForClass(Asset);

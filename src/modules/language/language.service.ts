@@ -10,15 +10,34 @@ import { CreateLanguageDto } from './dto/create-language.dto';
 @Injectable()
 export class LanguageService {
   constructor(
-    @InjectModel(Language.name) private userModel: Model<LanguageDocument>,
+    @InjectModel(Language.name) private languageModel: Model<LanguageDocument>,
   ) {}
 
-  async createLanguage({ age, name }: CreateLanguageDto): Promise<Language> {
-    const newLanguage = new this.userModel({ name, age });
-    return newLanguage.save();
+  async createLanguage(props: CreateLanguageDto): Promise<Language> {
+    try {
+      const language = await this.languageModel
+        .findOneAndUpdate(
+          {
+            code: props.code,
+          },
+          props,
+          {
+            new: true,
+            upsert: true,
+          },
+        )
+        .exec();
+      return language;
+    } catch (error) {}
+    // const newLanguage = new this.languageModel(props);
+    // return newLanguage.save();
   }
 
-  async findAll(): Promise<Language[]> {
-    return this.userModel.find().exec();
+  async find(id?: string[] | string): Promise<Language[]> {
+    if (id === undefined || id?.length === 0)
+      return this.languageModel.find().exec();
+    else if (id?.length) {
+      return this.languageModel.find({ _id: { $in: id } }).exec();
+    } else return this.languageModel.find({ _id: id }).exec();
   }
 }

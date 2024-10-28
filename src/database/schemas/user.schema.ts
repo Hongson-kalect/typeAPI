@@ -30,16 +30,16 @@ export class User {
   ban: string;
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Profile' })
-  profile: ProfileDocument;
+  profile: mongoose.Schema.Types.ObjectId;
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Setting' })
-  setting: SettingDocument;
+  setting: mongoose.Schema.Types.ObjectId;
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Asset' })
-  asset: AssetDocument;
+  asset: mongoose.Schema.Types.ObjectId;
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'device' })
-  device: DeviceDocument[];
+  device: mongoose.Schema.Types.ObjectId[];
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

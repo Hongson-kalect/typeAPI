@@ -7,7 +7,7 @@ export type DeviceDocument = Device & Document;
 @Schema()
 export class Device {
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
-  user: UserDocument;
+  user: mongoose.Schema.Types.ObjectId;
 
   @Prop()
   ip: string;

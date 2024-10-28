@@ -16,7 +16,7 @@ export class Game {
   genre: string;
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'GameInfo' })
-  gameInfo: GameInfoDocument;
+  gameInfo: mongoose.Schema.Types.ObjectId;
 
   @Prop()
   defaultLanguage: string;

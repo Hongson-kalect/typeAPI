@@ -7,7 +7,7 @@ export type SpecialRuleDocument = SpecialRule & Document;
 @Schema()
 export class SpecialRule {
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'TypeStyled' })
-  typeStyle: TypeStyle;
+  typeStyle: mongoose.Schema.Types.ObjectId;
 
   @Prop()
   input: string;

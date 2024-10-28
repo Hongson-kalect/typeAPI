@@ -7,7 +7,7 @@ export type TypeStyleDocument = TypeStyle & Document;
 @Schema()
 export class TypeStyle {
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Language' })
-  language: LanguageDocument;
+  language: mongoose.Schema.Types.ObjectId;
 
   @Prop()
   code: string;

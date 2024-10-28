@@ -7,7 +7,7 @@ export type RateDocument = Rate & Document;
 @Schema()
 export class Rate {
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
-  user: UserDocument;
+  user: mongoose.Schema.Types.ObjectId;
 
   @Prop()
   type: string; //bản dịch hoặc bản gốc, theme hay sound hay ....

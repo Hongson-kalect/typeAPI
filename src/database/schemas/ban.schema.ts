@@ -7,7 +7,7 @@ export type BanDocument = Ban & Document;
 @Schema()
 export class Ban {
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
-  user: UserDocument;
+  user: mongoose.Schema.Types.ObjectId;
 
   @Prop()
   time: string;

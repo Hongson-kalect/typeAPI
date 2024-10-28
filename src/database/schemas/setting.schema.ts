@@ -10,16 +10,16 @@ export type SettingDocument = Setting & Document;
 @Schema()
 export class Setting {
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
-  user: UserDocument;
+  user: mongoose.Schema.Types.ObjectId;
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Language' })
-  language: LanguageDocument;
+  language: mongoose.Schema.Types.ObjectId;
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Themes' })
-  themes: ThemeDocument[];
+  themes: mongoose.Schema.Types.ObjectId[];
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'TypeStyled' })
-  typeStyle: TypeStyle;
+  typeStyle: mongoose.Schema.Types.ObjectId;
 }
 
 export const SettingSchema = SchemaFactory.createForClass(Setting);

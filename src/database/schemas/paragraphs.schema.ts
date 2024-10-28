@@ -1,23 +1,22 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import mongoose, { Document } from 'mongoose';
+import mongoose, { Document, Types } from 'mongoose';
 import { User, UserDocument } from './user.schema';
 import { Novel, NovelDocument } from './novel.schema';
+import { LanguageDocument } from './language.schema';
 
 export type ParagraphDocument = Paragraph & Document;
 
 @Schema()
 export class Paragraph {
-  @Prop()
-  novel: string;
+  // @Prop()
 
-  @Prop()
-  language: string;
+  _id?: Types.ObjectId;
+
+  @Prop({ type: Types.ObjectId, ref: 'Language' })
+  language: Types.ObjectId;
 
   @Prop()
   header: string;
-
-  @Prop()
-  title: string;
 
   @Prop()
   content: string;
@@ -31,11 +30,11 @@ export class Paragraph {
   @Prop()
   rateTime: string;
 
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
-  user: UserDocument;
+  @Prop({ type: Types.ObjectId, ref: 'User' })
+  user: Types.ObjectId;
 
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Novel' })
-  Novel: NovelDocument;
+  // @Prop({ type: Types.ObjectId, ref: 'Novel' })
+  // Novel: NovelDocument;
 }
 
 export const ParagraphSchema = SchemaFactory.createForClass(Paragraph);

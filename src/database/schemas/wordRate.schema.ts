@@ -7,7 +7,7 @@ export type WordRateDocument = WordRate & Document;
 @Schema()
 export class WordRate {
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Language' })
-  language: LanguageDocument;
+  language: mongoose.Schema.Types.ObjectId;
 
   @Prop()
   rate: string; //json
