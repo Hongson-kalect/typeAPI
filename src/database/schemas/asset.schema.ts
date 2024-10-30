@@ -13,7 +13,7 @@ export class Asset {
   @Prop()
   crystal: string;
 
-  @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Post' }] })
+  @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Theme' }] })
   themes: mongoose.Schema.Types.ObjectId[];
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })

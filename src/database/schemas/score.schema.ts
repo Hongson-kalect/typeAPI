@@ -32,13 +32,6 @@ export class Score {
 
   @Prop()
   ca: string;
-
-  // @Prop()
-  // user: string;
-  // @Prop()
-  // para: string;
-
-  //score cho game hay cho bài gõ hay cho bài viết. Để chung hay ko?
 }
 
 export const ScoreSchema = SchemaFactory.createForClass(Score);

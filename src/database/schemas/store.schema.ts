@@ -20,9 +20,6 @@ export class Store {
 
   @Prop()
   rate: string;
-
-  // @Prop()
-  // ban: string;
 }
 
 export const StoreSchema = SchemaFactory.createForClass(Store);
